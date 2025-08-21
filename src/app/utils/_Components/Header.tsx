@@ -1,3 +1,5 @@
+import React from "react"
+
 const Header = () =>{
   return(
     <div className="justify-center">
@@ -7,12 +9,6 @@ const Header = () =>{
   )
 }
 
-const Footer = () => {
-  return(
-    <div>
-      
-    </div>
-  )
-}
 
-export {Header,Footer}
+
+export {Header}
