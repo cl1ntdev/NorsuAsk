@@ -1,9 +1,8 @@
-import Image from "next/image";
-
+import Main from '../../utils/Page/Main'
 export default function Home() {
   return (
     <div className="flex justify-center align-middle">
-      <a>Hello World</a>
+      <Main />
     </div>
   );
 }
