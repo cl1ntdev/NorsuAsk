@@ -9,7 +9,7 @@ export default function Main(){
   const [state,setState] = useState<string>()
   
   return(
-    <div>
+    <div className="bg-green-500">
       <Header />
     </div>
   )
