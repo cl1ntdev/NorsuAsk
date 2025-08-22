@@ -7,9 +7,14 @@ type pageStatus = {
 
 const Header = ({changePageStatus}:pageStatus) =>{
   return(
-    <div className="justify-center">
-      <button onClick={()=>changePageStatus("Question")} className="mx-4 mt-5 bg-amber-50 text-blue-600">Qustion</button>
-      <button onClick={()=>changePageStatus("About")} className="mx-4 mt-5  bg-amber-50 text-blue-600">About</button>
+    <div className="items-center">
+      <div className="justify-center mx-8 mt-2">
+        <p className="text-blue-500">NORSU ASK</p>
+      </div>
+      <div className="justify-center">
+        <button onClick={()=>changePageStatus("Question")} className="mx-4 mt-5 bg-amber-50 text-blue-600">Qustion</button>
+        <button onClick={()=>changePageStatus("About")} className="mx-4 mt-5  bg-amber-50 text-blue-600">About</button>
+      </div>
     </div>
   )
 }
