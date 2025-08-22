@@ -20,12 +20,19 @@ export default function Chat(){
   ])
   
   const sendMessage = async() =>{
+    if (!userMessage.trim()){
+      console.log('empty input')
+      return;
+    }
     console.log("chat.tsx user message: ",userMessage)
-    const responseFromServer = await fetch("/api/chat",{
+    const responseFromServer = await fetch("http://localhost:8080/api/chat",{
       method:"POST",
       headers:{"Content-Type": "application/json"},
       body: JSON.stringify({message:userMessage})
     })
+    
+    const data = await responseFromServer.json()
+    console.log(data)
   }
   return(
     <div className="flex flex-col h-screen w-screen bg-amber-700">
@@ -43,7 +50,8 @@ export default function Chat(){
       {/* ========= */}
       
       <div className="flex items-center justify-center mb-5">
-        <input className="mx-5" type="text" placeholder="Ask Norsu Ai" value={userMessage} onChange={()=>setUserMessage} />
+        <input className="mx-5" type="text" placeholder="Ask Norsu Ai" value={userMessage} 
+        onChange={(e)=>setUserMessage(e.target.value)} />
         <button className="mx-5" onClick={sendMessage}>Send</button>
       </div>
     </div>
