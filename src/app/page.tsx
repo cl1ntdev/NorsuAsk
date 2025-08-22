@@ -2,6 +2,7 @@
 
 import React, { useEffect } from "react";
 import { Header } from "./utils/_Components/Header";
+import Chat from "./utils/_Components/Chat";
 import { useState } from "react";
 
 
@@ -16,9 +17,9 @@ export default function Home() {
   },[page])
   
   return (
-    <div className="flex justify-center align-middle bg-red-500 pt-2">
+    <div className="flex flex-col items-center h-screen bg-white">
       <Header changePageStatus={handleChangePage} />
-      <a>{page}</a>
+      <Chat />
     </div>
   );
 }
