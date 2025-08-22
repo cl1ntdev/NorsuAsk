@@ -19,8 +19,13 @@ export default function Chat(){
     }
   ])
   
-  const handleHistory = () =>{
-    console.log("working")
+  const sendMessage = async() =>{
+    console.log("chat.tsx user message: ",userMessage)
+    const responseFromServer = await fetch("/api/chat",{
+      method:"POST",
+      headers:{"Content-Type": "application/json"},
+      body: JSON.stringify({message:userMessage})
+    })
   }
   return(
     <div className="flex flex-col h-screen w-screen bg-amber-700">
@@ -39,7 +44,7 @@ export default function Chat(){
       
       <div className="flex items-center justify-center mb-5">
         <input className="mx-5" type="text" placeholder="Ask Norsu Ai" value={userMessage} onChange={()=>setUserMessage} />
-        <button className="mx-5" onClick={handleHistory}>Send</button>
+        <button className="mx-5" onClick={sendMessage}>Send</button>
       </div>
     </div>
   )
