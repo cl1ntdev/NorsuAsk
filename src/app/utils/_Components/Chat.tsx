@@ -33,6 +33,7 @@ export default function Chat(){
     
     const data = await responseFromServer.json()
     console.log(data)
+    setUserMessage("") // reset after sendin a message
   }
   return(
     <div className="flex flex-col h-screen w-screen bg-amber-700">
