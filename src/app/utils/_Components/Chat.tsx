@@ -11,12 +11,8 @@ export default function Chat(){
   const [chats,setChat] = useState<ChatType[]>([
     {
       sender:"ai",
-      message:"Hello"
+      message:"Hello I am Norsu Inquiry AI, Ask anything you want to know"
     },
-    {
-      sender:"user",
-      message:"World"
-    }
   ])
   
   const sendMessage = async() =>{
