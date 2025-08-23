@@ -24,7 +24,16 @@ export default function Chat(){
       console.log('empty input')
       return;
     }
-    console.log("chat.tsx user message: ",userMessage)
+    
+    // >> >> USER SENDING MESSAGE << << //
+    const userChat:ChatType = {
+      sender:"user",
+      message:userMessage
+    }
+    setUserMessage("") // reset after sendin a message
+    setChat(prev => [userChat,...prev])
+    
+    // >> >> AI RESPONDING MESSAGE << << //
     const responseFromServer = await fetch("http://localhost:8080/api/chat",{
       method:"POST",
       headers:{"Content-Type": "application/json"},
@@ -33,7 +42,14 @@ export default function Chat(){
     
     const data = await responseFromServer.json()
     console.log(data)
-    setUserMessage("") // reset after sendin a message
+   
+    const aiMessage:ChatType = {
+      sender:"ai",
+      message:"hello i am ai"
+    }
+    setChat(prev => [aiMessage,...prev])
+    
+    
   }
   return(
     <div className="flex flex-col h-screen w-screen bg-amber-700">
