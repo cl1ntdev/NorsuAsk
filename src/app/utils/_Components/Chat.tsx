@@ -40,12 +40,11 @@ export default function Chat(){
       body: JSON.stringify({message:userMessage})
     })
     
-    const data = await responseFromServer.json()
-    console.log(data)
+    const ai_response = await responseFromServer.json()
    
     const aiMessage:ChatType = {
       sender:"ai",
-      message:"hello i am ai"
+      message: ai_response
     }
     setChat(prev => [aiMessage,...prev])
     
