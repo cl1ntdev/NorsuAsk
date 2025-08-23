@@ -27,7 +27,7 @@ export default function Chat(){
       message:userMessage
     }
     setUserMessage("") // reset after sendin a message
-    setChat(prev => [userChat,...prev])
+    setChat(prev => [...prev,userChat])
     
     // >> >> AI RESPONDING MESSAGE << << //
     const responseFromServer = await fetch("http://localhost:8080/api/chat",{
@@ -42,7 +42,7 @@ export default function Chat(){
       sender:"ai",
       message: ai_response.reply
     }
-    setChat(prev => [aiMessage,...prev])
+    setChat(prev => [...prev,aiMessage])
     
     
   }
