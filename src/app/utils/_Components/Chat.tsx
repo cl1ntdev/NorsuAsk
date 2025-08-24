@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 
 type ChatType = {
   sender: "ai" | "user",
@@ -7,6 +7,7 @@ type ChatType = {
 
 export default function Chat(){
   const [userMessage,setUserMessage] = useState<string>("")
+  const [isLoading,setIsLoading] = useState<boolean>(false)
   
   const [chats,setChat] = useState<ChatType[]>([
     {
@@ -16,6 +17,7 @@ export default function Chat(){
   ])
   
   const sendMessage = async() =>{
+    setIsLoading(true)
     if (!userMessage.trim()){
       console.log('empty input')
       return;
@@ -37,7 +39,9 @@ export default function Chat(){
     })
     
     const ai_response = await responseFromServer.json()
-    console.log(ai_response)
+    if(ai_response){
+      setIsLoading(false)
+    }
     const aiMessage:ChatType = {
       sender:"ai",
       message: ai_response.reply
@@ -55,6 +59,9 @@ export default function Chat(){
             <p>{chat.sender}: {chat.message}</p>
           </div>
         ))}
+        {isLoading && (
+          <p>Loading...</p>
+        )}
       </div>
       
       {/* ========= */}
