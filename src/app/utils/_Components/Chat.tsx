@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState} from "react";
 
 type ChatType = {
   sender: "ai" | "user",
@@ -32,21 +32,42 @@ export default function Chat(){
     setChat(prev => [...prev,userChat])
     
     // >> >> AI RESPONDING MESSAGE << << //
-    const responseFromServer = await fetch("http://localhost:8080/api/chat",{
-      method:"POST",
-      headers:{"Content-Type": "application/json"},
-      body: JSON.stringify({message:userMessage})
-    })
+    // const responseFromServer = await fetch("http://localhost:8080/api/chat",{
+    //   method:"POST",
+    //   headers:{"Content-Type": "application/json"},
+    //   body: JSON.stringify({message:userMessage})
+    // })
     
-    const ai_response = await responseFromServer.json()
-    if(ai_response){
-      setIsLoading(false)
-    }
-    const aiMessage:ChatType = {
-      sender:"ai",
-      message: ai_response.reply
-    }
-    setChat(prev => [...prev,aiMessage])
+    // const ai_response = await responseFromServer.json()
+    // if(ai_response){
+    //   setIsLoading(false)
+    // }
+    // const aiMessage:ChatType = {
+    //   sender:"ai",
+    //   message: ai_response.reply
+    // }
+    // >> >> AI RESPONDING MESSAGE << << //
+    // >> >> AI with vector database << << 
+    const loadTxtAPI = await fetch('http://localhost:8080/load-txt',{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({"none":"none"})
+    })
+    console.log(userMessage)
+    const ai_ask = await fetch('http://localhost:8080/ask',{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({message:userMessage})
+    })
+    const ai_response = await ai_ask.json()
+    console.log(ai_response)
+    console.log(ai_response.reply)
+    // const aiMessage: ChatType = {
+    //   sender: "ai",
+    //   message: ai_response.reply
+    // }
+    
+    // setChat(prev => [...prev,aiMessage])
     
     
   }
