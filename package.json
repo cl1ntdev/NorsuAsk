@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "norsuask": "concurrently \"npm run dev \" \"node server/server.js\"",
+    "norsuask": "concurrently \"npm run dev \" \"node server/server2.js\"",
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
@@ -16,6 +16,7 @@
     "express": "^5.1.0",
     "groq-sdk": "^0.30.0",
     "next": "15.5.0",
+    "openai": "^5.16.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
