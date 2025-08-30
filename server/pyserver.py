@@ -79,7 +79,7 @@ async def ask(req: Request):
 
     # Combine retrieved context into a prompt
     context = "\n".join(results)
-    prompt = f"Context:\n{context}\n\nUser Question: {query}\n\nAnswer clearly based on the context above."
+    prompt = f"Context:\n{context}\n\nUser Question: {query}\n\nAnswer clearly based on the context above. Only answer the question related to the context"
 
     # Call Groq API for AI completion
     try:
