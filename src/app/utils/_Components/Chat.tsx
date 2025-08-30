@@ -48,7 +48,7 @@ export default function Chat(){
     // }
     // >> >> AI RESPONDING MESSAGE << << //
     // >> >> AI with vector database << << 
-    const loadTxtAPI = await fetch('http://localhost:8080/load-txt',{
+    await fetch('http://localhost:8080/load-txt',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
       body:JSON.stringify({"none":"none"})
@@ -67,7 +67,7 @@ export default function Chat(){
     //   message: ai_response.reply
     // }
     
-    // setChat(prev => [...prev,aiMessage])
+    setChat(prev => [...prev,ai_response])
     
     
   }
