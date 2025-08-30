@@ -4,7 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "norsuask": "concurrently \"npm run dev \" \"node server/server2.js\"",
+    "fend": "npm run dev",
+    "bkend": "py server/pyserver.py",
+    "norsuask": "concurrently \"npm run dev \" \"py -m server/pyserver.py\"",
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
