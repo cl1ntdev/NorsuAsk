@@ -101,5 +101,5 @@ async def ask(req: Request):
 
 port = 8080
 if __name__ == "__main__":
-    print("localhost is running on port:", port)
+    print("python server is running on port:", port)
     uvicorn.run(app, host="0.0.0.0", port=port)
