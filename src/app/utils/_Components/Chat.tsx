@@ -95,9 +95,11 @@ export default function Chat(){
       {/* ========= */}
       
       <div className="flex items-center justify-center mb-5">
-        <input className="mx-5" type="text" placeholder="Ask Norsu Ai" value={userMessage} 
-        onChange={(e)=>setUserMessage(e.target.value)} />
-        <button className="mx-5" onClick={sendMessage}>Send</button>
+        <div className=" bg-gray-400 rounded-2xl py-2">
+          <input className="mx-5 p-5 w-3xl text-black" type="text" placeholder="Message" value={userMessage} 
+          onChange={(e)=>setUserMessage(e.target.value)} />
+          <button className="mx-5 bg-blue-300 rounded-s-sm border text-gray-700 p-4" onClick={sendMessage}>Send</button>  
+        </div>
       </div>
     </div>
   )
