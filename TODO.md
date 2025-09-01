@@ -8,3 +8,4 @@
 7. clean Chat.tsx
 8. run both backend and frontend for testing optional 
 9. change width for response box 
+10. adter query ai return strucutred data using html elements
