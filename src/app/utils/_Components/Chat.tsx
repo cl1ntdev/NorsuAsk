@@ -60,14 +60,19 @@ export default function Chat(){
       body:JSON.stringify({message:userMessage})
     })
     const ai_response = await ai_ask.json()
+    setIsLoading(false)
     console.log(ai_response)
     console.log(ai_response.reply)
     // const aiMessage: ChatType = {
     //   sender: "ai",
     //   message: ai_response.reply
     // }
+     const aiMessage: ChatType = {
+      sender: "ai",
+      message: ai_response.reply
+    }
     
-    setChat(prev => [...prev,ai_response])
+    setChat(prev => [...prev,aiMessage])
     
     
   }
@@ -87,7 +92,7 @@ export default function Chat(){
           </div>
         ))}
         {isLoading && (
-          <p>Loading...</p>
+          <p className="text-gray-900">Loading...</p>
         )}
       </div>
       
