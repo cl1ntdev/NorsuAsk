@@ -74,7 +74,7 @@ export default function Chat(){
   return(
     <div className="flex flex-col h-screen w-screen bg-amber-700">
       {/* Chat Box */}
-      <div className={`flex-1 overflow-y-auto p-2`}> 
+      <div className={`flex-1 overflow-y-auto p-2 bg-green-200 h-screen`}> 
         {chats.map((chat,key)=>(
           <div className={`flex ${
             chat.sender == "ai" 
