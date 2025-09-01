@@ -76,12 +76,13 @@ export default function Chat(){
       {/* Chat Box */}
       <div className={`flex-1 overflow-y-auto p-2 bg-green-200 h-screen`}> 
         {chats.map((chat,key)=>(
+          // Container for chat 
           <div className={`flex ${
             chat.sender == "ai" 
             ? "justify-start bg-gray-950" 
             : 
             "justify-end bg-blue-400"
-            } px-4 w-2xl rounded-2xl `} key={key}>
+            } px-4 m-2 rounded-2xl `} key={key}>
             <p className="text-white">{chat.sender}: {chat.message}</p>
           </div>
         ))}
