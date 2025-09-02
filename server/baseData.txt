@@ -1,4 +1,4 @@
-TBA = To be arranged
+TBA = To be Assigned
 
 Kabilin Groups include archery, boxing, chess, magic, artisit, photography, band
 
@@ -134,3 +134,12 @@ Major in Automotive Technology
 Major in Civil Technology
 Major in Electronical Technology
 MASTER OF ARTS IN EDUCATIONAL MANAGEM
+
+
+CAS BUILDING ROOMS
+1st Floor Rooms
+104,105
+2nd Floor Rooms
+Library
+3rd Floor Rooms
+304,305
