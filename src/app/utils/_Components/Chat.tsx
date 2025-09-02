@@ -79,20 +79,35 @@ export default function Chat(){
   return(
     <div className="flex flex-col h-screen w-screen bg-amber-700">
       {/* Chat Box */}
-      <div className={`flex-1 overflow-y-auto p-2 bg-green-200 h-screen`}> 
+      <div className={`flex-1 overflow-y-auto p-4 bg-gray-100 h-screen`}>
         {chats.map((chat,key)=>(
-          // Container for chat 
-          <div className={`flex ${
-            chat.sender == "ai" 
-            ? "justify-start bg-gray-950" 
-            : 
-            "justify-end bg-blue-400"
-            } px-4 m-2 rounded-2xl `} key={key}>
-            <p className="text-white">{chat.sender}: {chat.message}</p>
+          // Container for chat
+          <div className={`flex mb-4 ${
+            chat.sender == "ai"
+            ? "justify-start"
+            :
+            "justify-end"
+            }`} key={key}>
+            <div className={`
+              max-w-xs
+              sm:max-w-md
+              p-3
+              rounded-lg
+              shadow-md
+              ${
+                chat.sender == "ai"
+                ? "bg-gray-200 text-gray-800 rounded-bl-none"
+                :
+                "bg-blue-500 text-white rounded-br-none"
+              }
+            `}>
+              <p className="font-medium">{chat.sender}:</p>
+              <p>{chat.message}</p>
+            </div>
           </div>
         ))}
         {isLoading && (
-          <p className="text-gray-900">Loading...</p>
+          <p className="text-gray-900 text-center italic">Loading...</p>
         )}
       </div>
       
