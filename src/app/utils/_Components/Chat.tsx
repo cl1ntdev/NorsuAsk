@@ -8,6 +8,7 @@ type ChatType = {
 export default function Chat(){
   const [userMessage,setUserMessage] = useState<string>("")
   const [isLoading,setIsLoading] = useState<boolean>(false)
+  const [isTxLoaded, setIsTxtLoaded] = useState<boolean>(false);
   
   const [chats,setChat] = useState<ChatType[]>([
     {
@@ -47,13 +48,15 @@ export default function Chat(){
     //   message: ai_response.reply
     // }
     // >> >> AI RESPONDING MESSAGE << << //
-    // >> >> AI with vector database << << 
-    await fetch('http://localhost:8080/load-txt',{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({"none":"none"})
-    })
-    console.log(userMessage)
+    // >> >> AI with vector database << <<
+    if(!isTxLoaded){
+      await fetch('http://localhost:8080/load-txt',{
+        method:"POST",
+        headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({"none":"none"})
+      })
+    } 
+    setIsTxtLoaded(true)
     const ai_ask = await fetch('http://localhost:8080/ask',{
       method:"POST",
       headers:{"Content-Type":"application/json"},
