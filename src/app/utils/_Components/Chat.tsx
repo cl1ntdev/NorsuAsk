@@ -80,9 +80,9 @@ export default function Chat(){
     
   }
   return(
-    <div className="flex flex-col h-screen w-screen bg-amber-700">
+    <div className="flex flex-col h-screen w-screen ">
       {/* Chat Box */}
-      <div className={`flex-1 overflow-y-auto p-4 bg-gray-100 h-screen`}>
+      <div className={`flex-1 overflow-y-auto p-4 h-screen`}>
         {chats.map((chat,key)=>(
           // Container for chat
           <div className={`flex mb-4 ${
