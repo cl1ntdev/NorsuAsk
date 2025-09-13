@@ -1,14 +1,14 @@
 'use client'
 
-import React, { useEffect } from "react";
+import React, { ReactNode,useEffect } from "react";
 import { Header } from "./utils/_Components/Header";
 import Chat from "./utils/_Components/Chat";
 import { useState } from "react";
-
+import LoginPage from "./pages/LoginPage";
 
 export default function Home() {
-  const [page, setPage] = useState<string>("Question")
-  const handleChangePage = (value:string) =>{
+  const [page, setPage] = useState<ReactNode>(<LoginPage/>)
+  const handleChangePage = (value:ReactNode) =>{
     setPage(value)
   }
   
@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="flex flex-col items-center h-screen bg-white">
       <Header changePageStatus={handleChangePage} />
-      <Chat />
+      {page}
     </div>
   );
 }
