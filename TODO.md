@@ -1,6 +1,6 @@
 ## TODO
 
-2. <> improve ui
+2. //improve ui
 3. add necessary instructions   
 4. // integrate vector database
 5. // compile public information for base data
@@ -9,3 +9,4 @@
 8. run both backend and frontend for testing optional 
 9. change width for response box 
 10. adter query ai return strucutred data using html elements
+11. <> login using docker
