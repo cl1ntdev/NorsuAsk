@@ -5,7 +5,7 @@ import { Header } from "./utils/_Components/Header";
 import Chat from "./utils/_Components/Chat";
 import { useState } from "react";
 import LoginPage from "./utils/Page/LoginPage";
-
+import { AuthProvider } from "./utils/Hooks/AuthHook";
 export default function Home() {
   const [page, setPage] = useState<ReactNode>(<LoginPage/>)
   const handleChangePage = (value:ReactNode) =>{
@@ -17,8 +17,11 @@ export default function Home() {
   },[page])
   
   return (
-    <div className="flex flex-col items-center h-screen bg-white">
-      {page}
-    </div>
+    <AuthProvider>
+      <div className="flex flex-col items-center h-screen bg-white">
+        {page}
+      </div>  
+    </AuthProvider>
+    
   );
 }
