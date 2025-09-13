@@ -4,7 +4,7 @@ import React, { ReactNode,useEffect } from "react";
 import { Header } from "./utils/_Components/Header";
 import Chat from "./utils/_Components/Chat";
 import { useState } from "react";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./utils/Page/LoginPage";
 
 export default function Home() {
   const [page, setPage] = useState<ReactNode>(<LoginPage/>)
